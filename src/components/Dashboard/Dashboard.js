@@ -91,6 +91,30 @@ const Dashboard = () => {
     }
   ];
 
+  function searchByTable() {
+    const input = document.getElementById('myInput');
+    let filter = input.value.toUpperCase();
+
+    let txtValue;
+    let i;
+    console.log(filter);
+    const table = document.getElementById('table');
+    const tr = table.getElementsByTagName('tr');
+
+    for (i = 0; i < tr.length; i++) {
+      let td = tr[i].getElementsByTagName('td')[0];
+
+      if (td) {
+        txtValue = td.textContent || td.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          tr[i].style.display = '';
+        } else {
+          tr[i].style.display = 'none';
+        }
+      }
+    }
+  }
+
   return (
     <div className="container">
       <header className="header">
@@ -184,11 +208,16 @@ const Dashboard = () => {
             </div>
             <div className="search-input">
               <ImSearch className="icon" />
-              <input className="input" placeholder="Search" />
+              <input
+                className="input"
+                id="myInput"
+                onKeyUp={searchByTable}
+                placeholder="Search name"
+              />
             </div>
           </div>
           <div className="users">
-            <table className="table">
+            <table className="table" id="table">
               <thead>
                 <tr>
                   <th>Customer Name</th>
