@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Dashboard.scss';
 import Logo from '../../images/logo.svg';
 import { ReactComponent as Home } from '../../images/home.svg';
@@ -13,10 +13,9 @@ import { ImSearch } from 'react-icons/im';
 import { AiOutlineLeft, AiOutlineRight } from 'react-icons/ai';
 
 const Dashboard = () => {
-  const iconColor = 'rgba(145, 151, 179, 1)';
-  const whiteColor = 'rgba(255, 255, 255, 1)';
+  const [filter, setFilter] = useState('');
 
-  const Data = [
+  const data = [
     {
       id: 1,
       CustomerName: 'Jane Cooper',
@@ -91,29 +90,27 @@ const Dashboard = () => {
     }
   ];
 
-  function searchByTable() {
-    const input = document.getElementById('myInput');
-    let filter = input.value.toUpperCase();
+  const iconColor = 'rgba(145, 151, 179, 1)';
+  const whiteColor = 'rgba(255, 255, 255, 1)';
 
-    let txtValue;
-    let i;
-    console.log(filter);
-    const table = document.getElementById('table');
-    const tr = table.getElementsByTagName('tr');
+  const toFilterArray = () => {
+    const normalizedFilter = filter.toLowerCase();
+    return data.filter(
+      (item) =>
+        item.CustomerName.toLowerCase().includes(normalizedFilter) ||
+        item.Company.toLowerCase().includes(normalizedFilter) ||
+        item.PhoneNumber.includes(normalizedFilter) ||
+        item.Email.toLowerCase().includes(normalizedFilter) ||
+        item.Country.toLowerCase().includes(normalizedFilter) ||
+        item.Status.toLowerCase().includes(normalizedFilter)
+    );
+  };
 
-    for (i = 0; i < tr.length; i++) {
-      let td = tr[i].getElementsByTagName('td')[0];
+  const filteredArray = toFilterArray();
 
-      if (td) {
-        txtValue = td.textContent || td.innerText;
-        if (txtValue.toUpperCase().indexOf(filter) > -1) {
-          tr[i].style.display = '';
-        } else {
-          tr[i].style.display = 'none';
-        }
-      }
-    }
-  }
+  const changeFilter = (e) => {
+    setFilter(e.currentTarget.value);
+  };
 
   return (
     <div className="container">
@@ -211,7 +208,8 @@ const Dashboard = () => {
               <input
                 className="input"
                 id="myInput"
-                onKeyUp={searchByTable}
+                value={filter}
+                onChange={changeFilter}
                 placeholder="Search name"
               />
             </div>
@@ -229,20 +227,22 @@ const Dashboard = () => {
                 </tr>
               </thead>
               <tbody>
-                {Data.map(({ id, CustomerName, Company, PhoneNumber, Email, Country, Status }) => {
-                  return (
-                    <tr key={id}>
-                      <td>{CustomerName}</td>
-                      <td>{Company}</td>
-                      <td>{PhoneNumber}</td>
-                      <td>{Email}</td>
-                      <td>{Country}</td>
-                      <td className="status">
-                        <div className={Status}>{Status}</div>
-                      </td>
-                    </tr>
-                  );
-                })}
+                {filteredArray.map(
+                  ({ id, CustomerName, Company, PhoneNumber, Email, Country, Status }) => {
+                    return (
+                      <tr key={id}>
+                        <td>{CustomerName}</td>
+                        <td>{Company}</td>
+                        <td>{PhoneNumber}</td>
+                        <td>{Email}</td>
+                        <td>{Country}</td>
+                        <td className="status">
+                          <div className={Status}>{Status}</div>
+                        </td>
+                      </tr>
+                    );
+                  }
+                )}
               </tbody>
             </table>
           </div>
