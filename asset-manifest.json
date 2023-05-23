@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/dashboard-task/static/css/main.728827d0.css",
-    "main.js": "/dashboard-task/static/js/main.3c1bfbd6.js",
+    "main.css": "/dashboard-task/static/css/main.10bd814a.css",
+    "main.js": "/dashboard-task/static/js/main.fbeec14c.js",
     "static/media/promote.svg": "/dashboard-task/static/media/promote.d13a6993510d0d17a6925a970d8ff25c.svg",
     "static/media/income.svg": "/dashboard-task/static/media/income.42a22aa4c9325e17632c79d278c88a8f.svg",
     "static/media/product.svg": "/dashboard-task/static/media/product.1ca4fd5b650bd0a4104c1a2789ca1171.svg",
@@ -11,11 +11,11 @@
     "static/media/home.svg": "/dashboard-task/static/media/home.e69733a3c364ca64864f4455d3601308.svg",
     "index.html": "/dashboard-task/index.html",
     "static/media/right.svg": "/dashboard-task/static/media/right.1ee83305d2bdda6ca42b87568f1b511e.svg",
-    "main.728827d0.css.map": "/dashboard-task/static/css/main.728827d0.css.map",
-    "main.3c1bfbd6.js.map": "/dashboard-task/static/js/main.3c1bfbd6.js.map"
+    "main.10bd814a.css.map": "/dashboard-task/static/css/main.10bd814a.css.map",
+    "main.fbeec14c.js.map": "/dashboard-task/static/js/main.fbeec14c.js.map"
   },
   "entrypoints": [
-    "static/css/main.728827d0.css",
-    "static/js/main.3c1bfbd6.js"
+    "static/css/main.10bd814a.css",
+    "static/js/main.fbeec14c.js"
   ]
 }
