@@ -1,5 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
 
+:root {
+  --main-menu-color: rgba(0, 0, 0, 1);
+  --secondary-menu-color: rgba(145, 151, 179, 1);
+  --grey-text-color: rgba(181, 183, 192, 1);
+  --white-color: rgba(255, 255, 255, 1);
+  --grey-background: rgba(238, 238, 238, 1);
+  --current-background: rgba(89, 50, 234, 1);
+  --box-shadow: 0px 10px 60px rgba(226, 236, 249, 0.5);
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -14,4 +24,9 @@ a {
 ul,
 ol {
   list-style: none;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
 }

@@ -1,11 +1,13 @@
 import './App.css';
-import Dashboard from './components/Dashboard/Dashboard';
+import Header from './components/Dashboard/Header/Header';
+import Main from './components/Dashboard/Main/Main';
 
 function App() {
   return (
-    <>
-      <Dashboard />
-    </>
+    <div className="container">
+      <Header />
+      <Main />
+    </div>
   );
 }
 
